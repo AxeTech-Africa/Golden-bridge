@@ -3252,3 +3252,11 @@ right: 100px;} */
     }
 }
 
+/* For smaller screens like mobile */
+@media (max-width: 767px) {
+    .contact-image-box img {
+        padding-right: 55px; /* Remove padding for mobile */
+        max-width: 100%; /* Ensure the image takes up full width on small screens */
+        padding-top: 20px;
+    }
+}
