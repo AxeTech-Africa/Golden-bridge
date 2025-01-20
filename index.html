@@ -996,6 +996,17 @@
 
 <!-- thm custom script -->
 <script async src="assets/js/custom.js"></script>
+<script>
+    $(document).ready(function() {
+        // Your existing code for handling color changes here
+  
+        // Add the following code to ensure it works on mobile and desktop
+        $(document).on('click touchstart', '.switch_btn', function() {
+            $('.switch_menu').toggleClass('active');
+        });
+    });
+  </script>
+  
 
 
 
