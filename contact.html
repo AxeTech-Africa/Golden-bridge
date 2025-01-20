@@ -253,7 +253,7 @@
                             <div class="sec-title">
                                 <h2>GET IN TOUCH</h2>
                             </div>
-                            <form id="contact-form" action="https://formspree.io/f/mvggezbo" method="POST" onsubmit="sendMessage(event)">
+                            <form action="https://formspree.io/f/mvggezbo" method="POST">
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="input-box"> 
@@ -271,13 +271,9 @@
                                         <div class="input-box">    
                                             <textarea name="message" placeholder="Write message" required=""></textarea>
                                         </div>
-                        
-                                        <!-- Hidden field for timestamp -->
-                                        <input type="hidden" name="timestamp" id="timestamp">
-                        
                                         <div class="button-box">
                                             <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                                            <button class="btn-one style2" type="submit">
+                                            <button class="btn-one style2" type="submit" data-loading-text="Please wait...">
                                                 <span class="txt">Send Message</span>
                                             </button> 
                                         </div>         
@@ -286,11 +282,9 @@
                             </form>
                         </div>
                         
-                        <!-- Success Message -->
-                        <div id="success-message" style="display: none; padding: 20px; background-color: #4CAF50; color: black; text-align: center; border-radius: 5px;">
+                        <div id="success-message" style="display: none; padding: 20px; background-color: #4CAF50; color: white; text-align: center; border-radius: 5px;">
                             <h3>Your message has been sent successfully!</h3>
                         </div>
-                       
                         <div class="contact-image-box">
                             <img src="assets/images/floorplans/img16.png" alt="Golden Bridge Tower" style="height: 744px;">    
                         </div>
@@ -598,41 +592,7 @@
 
 <!-- thm custom script -->
 <script src="assets/js/custom.js"></script>
-<script>
-       function sendMessage(event) {
-        event.preventDefault(); // Prevent the default form submission
 
-        // Get the current date and time in the local timezone (e.g., UTC+3)
-        const currentDate = new Date();
-        const timestamp = currentDate.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' });
-
-        // Set the timestamp in the hidden field
-        document.getElementById('timestamp').value = timestamp;
-
-        var form = document.getElementById('contact-form');
-        var formData = new FormData(form);
-
-        // Send the form data to Formspree
-        fetch(form.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                // Show success message and hide form
-                document.getElementById('success-message').style.display = 'block';
-                form.reset(); // Reset the form fields after successful submission
-            } else {
-                // Show an error message if something goes wrong
-                alert('There was a problem with the request. Please try again.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('There was a problem with the request. Please try again.');
-        });
-    }
-</script>
 
 
 
