@@ -1119,3 +1119,29 @@ jQuery(window).on('load', function() {
 
 
 $(window).enllax();
+
+
+//send message to whatsapp
+function submitForm() {
+    // Get form values
+    var name = document.querySelector('input[name="form_name"]').value;
+    var phone = document.querySelector('input[name="form_phone"]').value;
+    var email = document.querySelector('input[name="form_email"]').value;
+    var message = document.querySelector('textarea[name="form_message"]').value;
+
+    // Construct WhatsApp message (form details only)
+    var formDetailsMessage = `New inquiry details:\n\n` + 
+                             `Name: ${name}\n` + 
+                             `Phone: ${phone}\n` + 
+                             `Email: ${email}\n` + 
+                             `Message: ${message}`;
+
+    // Encode the message
+    var url = `https://wa.me/254725049888?text=${encodeURIComponent(formDetailsMessage)}`;
+
+    // Open WhatsApp chat with the details
+    window.open(url, '_blank');
+
+    // Prevent the form from submitting normally
+    return false;
+}
