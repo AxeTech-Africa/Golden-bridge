@@ -3260,3 +3260,9 @@ right: 100px;} */
         padding-top: 20px;
     }
 }
+
+
+    /* Hover styling */
+    .copyright-text .powered-link:hover {
+        color: #c7993c; /* Sets hover color */
+    }
